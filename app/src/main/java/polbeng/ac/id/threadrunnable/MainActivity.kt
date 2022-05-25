@@ -2,6 +2,7 @@ package polbeng.ac.id.threadrunnable
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Message
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,8 +22,10 @@ class MainActivity : AppCompatActivity() {
     }
     private fun killSomeTime() {
         for (i in 1..20) {
+            var msg = Message.obtain()
+            msg.data.putString("counter", i.toString())
             Thread.sleep(2000)
-            println("i: $i")
+
         }
     }
 }
